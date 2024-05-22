@@ -1,11 +1,15 @@
-import { useState } from "react";
-import LoginForm from "./pages/LoginForm";
-function App() {
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LoginForm from './pages/LoginForm';
+
+const App = () => {
   return (
-    <div>
-      <LoginForm />
-    </div>
+    <Routes>
+      <Route path="/" element={<LoginForm />} />
+      <Route path="/home" element={<HomePage />} />
+    </Routes>
   );
-}
+};
 
 export default App;

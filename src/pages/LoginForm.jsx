@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "../assets/style.css"
+import { useNavigate } from 'react-router-dom';
+
 
 const LoginForm = () => {
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleEmailChange = (e) => {
-    setUsername(e.target.value);
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -22,14 +26,15 @@ const LoginForm = () => {
         password: password,
       }, {
         headers: {
-          'accept': 'text/plain',
+          'Accept': 'text/plain',
           'Content-Type': 'application/json'
-        }
+        },
       });
 
       console.log('Response:', response.data);
+      navigate('/home');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error.response);
     }
   };
 
