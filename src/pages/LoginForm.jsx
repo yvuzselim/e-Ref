@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "../assets/style.css"
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setUsername(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -18,7 +19,7 @@ const LoginForm = () => {
     try {
       const response = await axios.post('http://eref-api.runasp.net/api/Authentication/login', {
         email: email,
-        password: password
+        password: password,
       }, {
         headers: {
           'accept': 'text/plain',
@@ -44,14 +45,14 @@ const LoginForm = () => {
         {/* Tüm giriş alanları için ana konteyner */}
         <div className="mainContainer">
             {/* Kullanıcı Adı */}
-            <label htmlFor="username">Kullanıcı adınız</label>
+            <label htmlFor="email">Emailiniz: </label>
             <input 
                 type="text" 
-                placeholder="Kullanıcı Adını Girin" 
-                name="username" 
-                id="username" 
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Email Giriniz" 
+                name="email" 
+                id="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required 
             />
 

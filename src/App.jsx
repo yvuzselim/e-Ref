@@ -1,13 +1,11 @@
 import { useState } from "react";
-
+import LoginForm from "./pages/LoginForm";
 function App() {
-
   return (
     <div>
-    hello world
-  </div>
-  )
-
+      <LoginForm />
+    </div>
+  );
 }
 
 export default App;
